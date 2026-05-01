@@ -1,57 +1,32 @@
-======================================================================
-ЗВІТ ПРО ТЕСТУВАННЯ ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ
-Тема: Шаблони проектування та принципи SOLID
-Проект: Система управління замовленнями ресторану
-Дата: 01.05.2026
-Кількість тестів: 18
-Статус: Всі тести пройдено успішно
-======================================================================
+# Restaurant Management System
 
---- БАЗОВІ ТЕСТИ ТА TDD ---
+Проектне завдання з дисципліни "Проектування ПЗ". Система імітує роботу ресторану (меню, замовлення, кухня) з дотриманням принципів SOLID та використанням патернів проектування.
 
-[01] test_add_dish_to_menu .................................. PASSED
-     (Перевірка додавання страви до об'єкта меню)
-[02] test_dish_properties ................................... PASSED
-     (Валідація назви та ціни страви)
-[03] test_customer_creation ................................. PASSED
-     (Перевірка створення об'єкта клієнта)
-[04] test_empty_menu_at_start ............................... PASSED
-     (Перевірка, що нове меню не містить страв за замовчуванням)
-[05] test_multiple_dishes_in_menu ........................... PASSED
-     (Додавання кількох страв та перевірка розміру списку)
-[06] test_order_creation_with_customer ...................... PASSED
-     (Коректність прив'язки замовлення до замовника)
-[07] test_order_has_correct_dishes .......................... PASSED
-     (Перевірка наявності обраних страв у замовленні)
-[08] test_notifier_attaching ................................ PASSED
-     (Перевірка реєстрації спостерігача в KitchenNotifier)
-[09] test_failed_search_in_menu ............................. PASSED
-     (Поведінка системи при пошуку відсутньої страви)
-[10] test_database_storage_initially_empty .................. PASSED
-     (Перевірка початкового стану бази даних замовлень)
+**Використані патерни:**
+* **Singleton** (Database)
+* **Factory Method** (Orders)
+* **Observer** (Kitchen Notifications)
 
---- ТЕСТУВАННЯ ПАТЕРНІВ ПРОЕКТУВАННЯ ---
+### ✅ Результати тестування (18/18 тестів пройдено)
 
-[11] test_singleton_identity ................................ PASSED
-     (Singleton: Перевірка ідентичності екземплярів бази даних)
-[12] test_singleton_persistence ............................. PASSED
-     (Singleton: Збереження стану даних між викликами)
-[13] test_factory_regular_order ............................. PASSED
-     (Factory: Створення об'єкта RegularOrder)
-[14] test_factory_bulk_order ................................ PASSED
-     (Factory: Створення об'єкта BulkOrder)
-[15] test_factory_invalid_type .............................. PASSED
-     (Factory: Обробка винятку при некоректному типі замовлення)
-[16] test_kitchen_receives_notification ..................... PASSED
-     (Observer: Отримання сповіщення кухнею про нове замовлення)
-[17] test_multiple_observers_notification ................... PASSED
-     (Observer: Робота системи з кількома підписниками одночасно)
-[18] test_order_flow_integration ............................ PASSED
-     (Інтеграція: Наскрізний процес Factory -> DB -> Notifier)
+#### Частина 1 та 2: Базовий функціонал (SOLID)
+- [x] `test_add_dish_to_menu` — додавання страви в меню
+- [x] `test_dish_properties` — валідація назви та ціни
+- [x] `test_customer_creation` — створення об'єкта клієнта
+- [x] `test_empty_menu_at_start` — початковий стан меню
+- [x] `test_multiple_dishes_in_menu` — додавання кількох страв
+- [x] `test_order_creation_with_customer` — прив'язка до замовника
+- [x] `test_order_has_correct_dishes` — склад замовлення
+- [x] `test_notifier_attaching` — реєстрація спостерігача
+- [x] `test_failed_search_in_menu` — обробка відсутності страви
+- [x] `test_database_storage_initially_empty` — стан бази даних
 
-======================================================================
-ПІДСУМОК:
-Ran 18 tests in 0.003s
-
-OK
-======================================================================
+#### Частина 3: Патерни проектування
+- [x] **Singleton**: `test_singleton_identity` — унікальність БД
+- [x] **Singleton**: `test_singleton_persistence` — збереження даних
+- [x] **Factory**: `test_factory_regular_order` — створення RegularOrder
+- [x] **Factory**: `test_factory_bulk_order` — створення BulkOrder
+- [x] **Factory**: `test_factory_invalid_type` — обробка помилок типів
+- [x] **Observer**: `test_kitchen_receives_notification` — сповіщення кухні
+- [x] **Observer**: `test_multiple_observers_notification` — група підписників
+- [x] **Integration**: `test_order_flow_integration` — повний цикл системи
